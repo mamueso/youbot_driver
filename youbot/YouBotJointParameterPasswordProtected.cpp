@@ -376,7 +376,7 @@ void CommutationMotorCurrent::setParameter(const quantity<current>& parameter) {
 void CommutationMotorCurrent::toString(std::string& value) {
   // Bouml preserved body begin 0009DCF1
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009DCF1
 }
@@ -435,7 +435,7 @@ void CurrentControlLoopDelay::setParameter(const quantity<si::time>& parameter) 
 void CurrentControlLoopDelay::toString(std::string& value) {
   // Bouml preserved body begin 0009CFF1
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009CFF1
 }
@@ -493,7 +493,7 @@ void EncoderResolution::setParameter(const unsigned int parameter) {
 void EncoderResolution::toString(std::string& value) {
   // Bouml preserved body begin 0009E9F1
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009E9F1
 }
@@ -829,7 +829,7 @@ void InitSineDelay::setParameter(const quantity<si::time>& parameter) {
 void InitSineDelay::toString(std::string& value) {
   // Bouml preserved body begin 0009E3F1
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009E3F1
 }
@@ -888,7 +888,7 @@ void MassInertiaConstant::setParameter(const int parameter) {
 void MassInertiaConstant::toString(std::string& value) {
   // Bouml preserved body begin 0009E171
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009E171
 }
@@ -946,7 +946,7 @@ void MaximumMotorCurrent::setParameter(const quantity<current>& parameter) {
 void MaximumMotorCurrent::toString(std::string& value) {
   // Bouml preserved body begin 0009CA71
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009CA71
 }
@@ -1004,7 +1004,7 @@ void MotorCoilResistance::setParameter(const quantity<resistance>& parameter) {
 void MotorCoilResistance::toString(std::string& value) {
   // Bouml preserved body begin 0009E8F1
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009E8F1
 }
@@ -1063,7 +1063,7 @@ void MotorControllerTimeout::setParameter(const quantity<si::time>& parameter) {
 void MotorControllerTimeout::toString(std::string& value) {
   // Bouml preserved body begin 0009F871
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009F871
 }
@@ -1127,7 +1127,7 @@ void MotorPoles::setParameter(const unsigned int parameter) {
 void MotorPoles::toString(std::string& value) {
   // Bouml preserved body begin 0009EB71
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009EB71
 }
@@ -1185,7 +1185,7 @@ void OperationalTime::setParameter(const quantity<si::time>& parameter) {
 void OperationalTime::toString(std::string& value) {
   // Bouml preserved body begin 000A05F1
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 000A05F1
 }
@@ -1242,7 +1242,7 @@ void PIDControlTime::setParameter(const quantity<si::time>& parameter) {
 void PIDControlTime::toString(std::string& value) {
   // Bouml preserved body begin 0009CF71
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009CF71
 }
@@ -1292,7 +1292,7 @@ void ReversingEncoderDirection::setParameter(const bool parameter) {
 void ReversingEncoderDirection::toString(std::string& value) {
   // Bouml preserved body begin 0009EA71
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009EA71
 }
@@ -1341,7 +1341,7 @@ void SetEncoderCounterZeroAtNextNChannel::setParameter(const bool parameter) {
 void SetEncoderCounterZeroAtNextNChannel::toString(std::string& value) {
   // Bouml preserved body begin 0009D571
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 0009D571
 }
@@ -1612,7 +1612,7 @@ void ThermalWindingTimeConstant::setParameter(const quantity<si::time>& paramete
 void ThermalWindingTimeConstant::toString(std::string& value) {
   // Bouml preserved body begin 000A0171
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 000A0171
 }
@@ -1669,7 +1669,7 @@ void MotorHaltedVelocity::setParameter(const int parameter) {
 void MotorHaltedVelocity::toString(std::string& value) {
   // Bouml preserved body begin 000CBA71
   std::stringstream ss;
-  ss << this->name << ": " << this->value;
+  ss << this->name << ": " << "HACK"; // this->value;
   value  = ss.str();
   // Bouml preserved body end 000CBA71
 }
