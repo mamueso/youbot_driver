@@ -36,6 +36,7 @@ private:
 	unsigned int overallTime;
 	unsigned int startTime;
 	unsigned int updateCycle;
+
 };
 
 #endif //YOU_BOT_BASE_KINEMATICS_TEST_H

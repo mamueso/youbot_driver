@@ -6,6 +6,8 @@
 
 CPPUNIT_TEST_SUITE_REGISTRATION( YouBotBaseKinematicsTestEndurance );
 
+int g_no_of_cylces = 1;
+
 int main(int argc, char* argv[]) {
   std::cout << "Attention! All wheels of the youBot will move during the test. \nThe youBot should NOT stand on the ground and the wheels should be in the air! \nAlso the arm will move please be carefull!" << std::endl;
   char input = 0;
@@ -17,6 +19,13 @@ int main(int argc, char* argv[]) {
       return 0;
     }
   }
+  
+  int ret = scanf("%d", &g_no_of_cycles);
+  if(ret != 1 || g_no_of_cycles < 1) {
+    std::cout << "Invalid number of cycles, using default value of 1." << std::endl;
+    g_no_of_cycles = 1;
+  }
+
   Logger::logginLevel = trace;
   
   CppUnit::Test *suite = CppUnit::TestFactoryRegistry::getRegistry().makeTest();
