@@ -1,12 +1,11 @@
 #include "YouBotArmTest.hpp"
 
+int YouBotArmTest::no_of_cycles = 1; // Default number of cycles
+
 using namespace youbot;
 
 YouBotArmTest::YouBotArmTest():dof(5) {
-
   EthercatMaster::getInstance("youbot-ethercat.cfg", "../config/", true);
-
-
 }
 
 YouBotArmTest::~YouBotArmTest() {
@@ -58,7 +57,6 @@ void YouBotArmTest::youBotArmTest() {
   desiredJointAngle.angle = 0.2 * radian;
   foldedpose.push_back(desiredJointAngle);
 
-
   for (int i = 1; i <= dof; i++) {
     jointNameStream << "Joint_" << i << "_" << __func__;
     myTrace.push_back(new DataTrace(myArm.getArmJoint(i), jointNameStream.str(), true));
@@ -69,6 +67,10 @@ void YouBotArmTest::youBotArmTest() {
   for (int i = 0; i < dof; i++) {
     myTrace[i].startTrace();
   }
+
+  for (int loop = 0; loop < no_of_cycles; ++loop) {
+    LOG(info) << "Loop No:" << loop << "\n";
+
 
   // 1 sec no movement
   startTime = myTrace[0].getTimeDurationMilliSec();
@@ -111,7 +113,8 @@ void YouBotArmTest::youBotArmTest() {
     }
     SLEEP_MICROSEC(updateCycle);
   }
-  
+  }
+   
   for (int i = 0; i < dof; i++) {
     myTrace[i].stopTrace();
     myTrace[i].plotTrace();

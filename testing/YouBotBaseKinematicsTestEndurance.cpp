@@ -1,5 +1,7 @@
 #include "YouBotBaseKinematicsTestEndurance.hpp"
 
+extern int g_no_of_cycles;
+
 using namespace youbot;
 
 YouBotBaseKinematicsTestEndurance::YouBotBaseKinematicsTestEndurance() {
@@ -47,19 +49,20 @@ void YouBotBaseKinematicsTestEndurance::youBotBaseKinematicsTest() {
     quantity<si::plane_angle> actualAngle = 0 * radian;
   */
 
+  for (int i = 1; i <= 4; i++) {
+    jointNameStream << "Joint_" << i << "_" << __func__;
+    myTrace.push_back(new DataTrace(myBase.getBaseJoint(i), jointNameStream.str(), true));
+    jointNameStream.str("");
+    myBase.getBaseJoint(i).setEncoderToZero();
+  }
+
+  for (int i = 0; i < 4; i++) {
+    myTrace[i].startTrace();
+  }
+
   for (int loop = 0; loop < g_no_of_cycles; ++loop) {
     LOG(info) << "Loop No:" << loop << "\n";
 
-    for (int i = 1; i <= 4; i++) {
-      jointNameStream << "Joint_" << i << "_" << __func__;
-      myTrace.push_back(new DataTrace(myBase.getBaseJoint(i), jointNameStream.str(), true));
-      jointNameStream.str("");
-      myBase.getBaseJoint(i).setEncoderToZero();
-    }
-
-    for (int i = 0; i < 4; i++) {
-      myTrace[i].startTrace();
-    }
 
     startTime = myTrace[0].getTimeDurationMilliSec();
     overallTime = startTime + step6 + 10;

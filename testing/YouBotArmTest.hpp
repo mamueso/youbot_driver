@@ -31,12 +31,14 @@ public:
 
 
 	void youBotArmTest();
+	static void setNoOfCycles(int n) { no_of_cycles = n; }
 
 private:
 	unsigned int overallTime;
 	unsigned int startTime;
 	unsigned int updateCycle;
-  const int dof;
+    const int dof;
+	static int no_of_cycles;
 };
 
 #endif //YOU_BOT_ARM_TEST_H
