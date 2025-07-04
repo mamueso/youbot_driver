@@ -1,8 +1,12 @@
-#include <cppunit/extensions/TestFactoryRegistry.h>
-#include <cppunit/ui/text/TestRunner.h>
 #include <iostream>
 #include <cstdlib>
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/extensions/HelperMacros.h>
 #include "YouBotArmTest.hpp"
+
+CPPUNIT_TEST_SUITE_REGISTRATION(YouBotArmTest);
 
 int main(int argc, char* argv[]) {
     int no_of_cycles = 1;
