@@ -6,8 +6,6 @@
 
 CPPUNIT_TEST_SUITE_REGISTRATION( YouBotBaseKinematicsTestEndurance );
 
-int g_no_of_cycles = 1;
-
 int main(int argc, char* argv[]) {
   std::cout << "Attention! All wheels of the youBot will move during the test. \nThe youBot should NOT stand on the ground and the wheels should be in the air! \nAlso the arm will move please be carefull!" << std::endl;
   char input = 0;
