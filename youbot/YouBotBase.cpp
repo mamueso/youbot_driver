@@ -49,11 +49,14 @@
  *
  ****************************************************************/
 #include "youbot/YouBotBase.hpp"
+#include "MqttClient.hpp"
 namespace youbot {
 
 YouBotBase::YouBotBase(const std::string name, const std::string configFilePath)
 : ethercatMaster(EthercatMaster::getInstance("youbot-ethercat.cfg", configFilePath)) {
   // Bouml preserved body begin 00067E71
+
+    
 
     this->controllerType = 174;
     this->alternativeControllerType = 1632;
@@ -76,6 +79,8 @@ YouBotBase::YouBotBase(const std::string name, const std::string configFilePath)
     this->initializeJoints();
 
     this->initializeKinematic();
+
+    MqttClient::getInstance().setYoubotBase(this);
 
   // Bouml preserved body end 00067E71
 }

@@ -83,6 +83,7 @@ SET(YOUBOT_DRIVER_SRC
   ${PROJECT_SOURCE_DIR}/youbot/YouBotJointParameterReadOnly.cpp
   ${PROJECT_SOURCE_DIR}/youbot/YouBotJointParameterPasswordProtected.cpp
   ${PROJECT_SOURCE_DIR}/youbot/JointTrajectoryController.cpp
+  ${PROJECT_SOURCE_DIR}/youbot/MqttClient.cpp
   ${PROJECT_SOURCE_DIR}/base-kinematic/FourSwedishWheelOmniBaseKinematic.cpp
   ${PROJECT_SOURCE_DIR}/base-kinematic/FourSwedishWheelOmniBaseKinematicConfiguration.cpp
 )
@@ -110,6 +111,7 @@ SET(YOUBOT_DRIVER_HEADERS
   youbot/DataTrace.hpp
   youbot/GripperDataTrace.hpp
   youbot/JointTrajectoryController.hpp
+  youbot/MqttClient.hpp
   base-kinematic/FourSwedishWheelOmniBaseKinematic.hpp
   base-kinematic/FourSwedishWheelOmniBaseKinematicConfiguration.hpp
   base-kinematic/WheeledBaseKinematic.hpp
@@ -152,7 +154,7 @@ ELSE(DEFINED ROS_ROOT_PATH AND USE_ROS MATCHES ON)
   ADD_LIBRARY(YouBotDriver ${YOUBOT_DRIVER_SRC})
 ENDIF(DEFINED ROS_ROOT_PATH AND USE_ROS MATCHES ON)
 
-TARGET_LINK_LIBRARIES(YouBotDriver soem)
+TARGET_LINK_LIBRARIES(YouBotDriver soem paho-mqttpp3 paho-mqtt3as pthread)
 #ADD_LIBRARY(YouBotDriverShared SHARED "")
 #SET_TARGET_PROPERTIES(YouBotDriverShared PROPERTIES OUTPUT_NAME "YouBotDriver")
 #SET_TARGET_PROPERTIES(YouBotDriverShared PROPERTIES LINKER_LANGUAGE CXX)

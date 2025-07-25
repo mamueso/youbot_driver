@@ -49,6 +49,7 @@
  *
  ****************************************************************/
 #include "youbot/YouBotManipulator.hpp"
+#include "MqttClient.hpp"
 namespace youbot {
 
 YouBotManipulator::YouBotManipulator(const std::string name, const std::string configFilePath)
@@ -75,7 +76,7 @@ YouBotManipulator::YouBotManipulator(const std::string name, const std::string c
 
     this->initializeJoints();
     
-
+    MqttClient::getInstance().setYoubotManipulator(this);
 
   // Bouml preserved body end 00067F71
 }
