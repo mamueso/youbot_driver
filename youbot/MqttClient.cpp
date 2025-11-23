@@ -8,7 +8,7 @@
 #define MQTT_DEFAULT_CLIENTID   "YoubotPublisher"
 #define MQTT_DEFAULT_QOS         1
 
-MqttClient::MqttClient() : running(false), connected(false) {
+MqttClient::MqttClient() : running(false), connected(false), youbotBase(nullptr){
     // init connection
 
     MQTTAsync_connectOptions conn_opts = MQTTAsync_connectOptions_initializer;
@@ -61,7 +61,14 @@ MqttClient::~MqttClient() {
 }
 
 
+void MqttClient::setYoubotManipulator(youbot::YouBotManipulator* manipulator) {
+    std::lock_guard<std::mutex> lock(mutex);
+    youbotBase = manipulator;
+}
+
+
 void MqttClient::onTick() {
+    std::lock_guard<std::mutex> lock(mutex);
     // publish cyclic values
 
     if (connected) {
@@ -106,12 +113,13 @@ void MqttClient::onTick() {
                 }
 
                 youbot::YouBotGripper& gripper = manipulator->getArmGripper();
-
-                youbot::GripperSensedBarPosition barPosition;
-                gripper.getGripperBar1().getData(barPosition);
-                publishValue(toStr(barPosition.barPosition.value()), baseTopic + "gripper/bar/0/position", client);
-                gripper.getGripperBar2().getData(barPosition);
-                publishValue(toStr(barPosition.barPosition.value()), baseTopic + "gripper/bar/1/position", client);
+                if( gripper != nullptr) {
+                    youbot::GripperSensedBarPosition barPosition;
+                    gripper.getGripperBar1().getData(barPosition);
+                    publishValue(toStr(barPosition.barPosition.value()), baseTopic + "gripper/bar/0/position", client);
+                    gripper.getGripperBar2().getData(barPosition);
+                    publishValue(toStr(barPosition.barPosition.value()), baseTopic + "gripper/bar/1/position", client);
+                }
             }
         }
     }

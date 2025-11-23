@@ -5,6 +5,7 @@
 #include <atomic>
 #include <mutex>
 #include <vector>
+#include <memory>
 #include <MQTTAsync.h>
 #include "YouBotBase.hpp"
 #include "YouBotManipulator.hpp"
@@ -33,7 +34,8 @@ public:
         youbotBase = base;
     }
 
-    void setYoubotManipulator(youbot::YouBotManipulator* manipulator) {
+    void setYoubotManipulator(std::shared_ptr<youbot::YouBotManipulator> manipulator) {
+        std::lock_guard<std::mutex> lock(mutex);
         if (youBotManipulators.size() >= 2) {
             std::cout << "Only two manipulators supported!" << std::endl;
             return;
@@ -59,7 +61,7 @@ private:
     MQTTAsync client;
 
     youbot::YouBotBase* youbotBase;
-    std::vector<youbot::YouBotManipulator*> youBotManipulators;
+    std::vector<std::shared_ptr<youbot::YouBotManipulator>> youBotManipulators;
 
 };
 
